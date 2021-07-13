@@ -1,6 +1,4 @@
-const callback = function (details) {
-    console.log(details)
-}
+const callback = function (details) {}
 const filter = { urls: ["<all_urls>"] }
 const opt_extraInfoSpec = ["blocking"]
 

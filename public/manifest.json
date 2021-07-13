@@ -13,7 +13,7 @@
   },
   "background": {
     "persistent": true,
-    "scripts": ["../src/background.js"]
+    "scripts": ["app/background.js"]
   },
   "permissions": ["webRequest", "webRequestBlocking", "tabs", "<all_urls>"]
 }

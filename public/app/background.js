@@ -1,5 +1,20 @@
-const callback = function (details) {}
-const filter = { urls: ["<all_urls>"] }
-const opt_extraInfoSpec = ["blocking"]
+const URLS = ["<all_urls>"]
 
-chrome.webRequest.onBeforeRequest.addListener(callback, filter, opt_extraInfoSpec)
+chrome.webRequest.onBeforeSendHeaders.addListener(
+  function (details) {
+    console.log("onBeforeSendHeaders", details)
+  },
+  { urls: URLS },
+  ["blocking", "requestHeaders", "extraHeaders"]
+)
+
+chrome.webRequest.onBeforeRequest.addListener(
+  function (details) {
+    const postedString = decodeURIComponent(
+      String.fromCharCode.apply(null, new Uint8Array(details.requestBody.raw[0].bytes))
+    )
+    console.log("onBeforeRequest", postedString)
+  },
+  { urls: URLS },
+  ["blocking", "requestBody"]
+)

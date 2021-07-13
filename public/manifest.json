@@ -15,5 +15,5 @@
     "persistent": true,
     "scripts": ["app/background.js"]
   },
-  "permissions": ["webRequest", "webRequestBlocking", "tabs", "<all_urls>"]
+  "permissions": ["webRequest", "webRequestBlocking", "tabs", "*://*/*"]
 }

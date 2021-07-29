@@ -1,11 +1,9 @@
-function  initial() {
+function  captureXHRRequests() {
   var XHR = XMLHttpRequest.prototype
 
   var open = XHR.open
   var send = XHR.send
   var setRequestHeader = XHR.setRequestHeader
-
-  console.log("Inject JS working")
 
   XHR.open = function (method, url) {
     this._method = method
@@ -73,6 +71,5 @@ function  initial() {
   }
 }
 
-initial()
+captureXHRRequests()
 
-console.log("Testing Inject JS")

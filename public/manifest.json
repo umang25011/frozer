@@ -15,5 +15,13 @@
     "persistent": true,
     "scripts": ["app/background.js"]
   },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "run_at": "document_start",
+      "js": ["app/background.js"]
+    }
+  ],
+  "web_accessible_resources": ["app/inject.js"],
   "permissions": ["webRequest", "webRequestBlocking", "tabs", "*://*/*"]
 }
